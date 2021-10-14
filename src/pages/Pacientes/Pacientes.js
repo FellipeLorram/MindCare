@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Main from '../../components/Main/Main';
 import Accordion from '../../components/Pacientes/Accordion/AccordionPatient';
+import { GlobalContext } from '../../contexts/App/index';
 
 export default function Pacientes() {
   const DataPatients = [
@@ -81,7 +82,11 @@ export default function Pacientes() {
       Situation: 'Atrasado',
     },
   ];
+  const bodyContext = useContext(GlobalContext);
 
+  useEffect(() => {
+    bodyContext.setBodyBlock(false);
+  }, []);
   let delayTime = 0;
 
   return (

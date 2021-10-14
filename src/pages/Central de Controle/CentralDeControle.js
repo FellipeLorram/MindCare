@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Main from '../../components/Main/Main';
 import CardContainer from '../../components/Central de Controle/Card Box Container/index';
 import Card from '../../components/Central de Controle/Card/CardPatients';
@@ -8,6 +8,7 @@ import InfoCard from '../../components/Central de Controle/Card/PatientsInfoCard
 import FinancialInfoCard from '../../components/Central de Controle/Card/FinancialInfoCard';
 import FinancialMonthWeekCard from '../../components/Central de Controle/Card/FinancialMonthWeekCard';
 import WeekContainer from '../../components/Central de Controle/Card Box Container/WeekContainer';
+import { GlobalContext } from '../../contexts/App/index';
 
 const Data = {
   patients: [
@@ -83,6 +84,12 @@ const Data = {
 };
 
 export default function CentralDeControle() {
+  const bodyContext = useContext(GlobalContext);
+
+  useEffect(() => {
+    bodyContext.setBodyBlock(false);
+  }, []);
+
   const [isExpanded, setIsExpanded] = useState([false, false, false, false]);
   const days = ['Hoje', 'Amanhã', 'Quinta', 'Sabádo'];
   let entryVelocity = 0;

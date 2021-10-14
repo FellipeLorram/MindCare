@@ -1,6 +1,7 @@
-import { AnimatePresence, AnimateSharedLayout } from 'framer-motion';
-import React, { useState, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useContext } from 'react';
 import { Button } from '../../../styles/GlobalStyles';
+import { GlobalContext } from '../../../contexts/App/index';
 import {
   ModalBackground,
   ModalBody,
@@ -30,10 +31,20 @@ export default function ModalPatients({
   day,
 }) {
   const [lastWords, setLastWords] = useState('-feira');
+  const bodyContext = useContext(GlobalContext);
 
   useEffect(() => {
     if (day === 'Hoje' || day === 'Sabádo' || day === 'Amanhã') setLastWords('');
   }, []);
+
+  useEffect(() => {
+    if (showModal) bodyContext.setBodyBlock(true);
+  }, [showModal]);
+
+  const handleCloseClick = () => {
+    setShowModal(false);
+    bodyContext.setBodyBlock(false);
+  };
 
   return (
     <AnimatePresence exitBeforeEnter>
@@ -60,8 +71,8 @@ export default function ModalPatients({
                 <span
                   tabIndex={0}
                   role="button"
-                  onKeyUp={() => setShowModal(false)}
-                  onClick={() => setShowModal(false)}
+                  onKeyUp={handleCloseClick}
+                  onClick={handleCloseClick}
                   className="material-icons-outlined"
                 >
                   close
@@ -71,7 +82,7 @@ export default function ModalPatients({
                 {patients.map(patient => (
                   <>
                     <BodyContent
-                      key={patient[0]}
+                      key={patient[1]}
                       patientName={patient[0]}
                       AppointmentHour={patient[1]}
                     />

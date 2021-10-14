@@ -220,6 +220,15 @@ export const ModalContainer = styled(motion.div)`
   font-size: 1.2rem;
   height: 600px;
 
+  &.large{
+    width: 100%;
+    max-width: 80%;
+    @media screen and (max-width:768px) {
+      width: 100%;
+      max-width: 95%;
+    }
+  }
+
   @media screen and (max-width:1200px) {
     width: 100%;
     max-width: 80%;
@@ -241,6 +250,10 @@ export const ModalHeader = styled(motion.div)`
   width: 100%;
   background: var(--white-color);
   border-radius: 10px 10px 0 0;
+
+  &.end{
+    justify-content: flex-end;
+  }
 
   .header--day{
     font-size: 2rem;
@@ -295,16 +308,18 @@ export const ModalBodyRemembers = styled(motion.div)`
   width: 100%;
   background: var(--white-color);
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
   gap: 1rem;
   padding: 1rem;
   overflow-y: auto;
+  justify-content: center;
 
   @media screen and (max-width:768px) {
     padding: .5rem;
     gap: .5rem;
     height: 100%;
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
@@ -318,6 +333,7 @@ export const ModalBodyContent = styled(motion.div)`
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   gap: .5rem;
+  position: relative;
 
   .modalBody--left-side{
     background: var(--white-color);
@@ -386,7 +402,8 @@ export const ModalFooter = styled(motion.div)`
   width: 100%;
   background: var(--white-color);
   border-radius: 0 0 10px 10px;
-
+  @media screen and (max-width:768px) {
+  }
 `;
 
 export const StyledLink = styled(Link)`
@@ -425,12 +442,15 @@ export const AddRemember = styled.div`
     transition: all .2s ease-in-out;
 
   }
+
+
+
 `;
 
 export const Remember = styled.div`
   width: 100%;
   height: 150px;
-  padding: 1em;
+  padding: .5em;
   padding-bottom: 0;
   background: var(--white-color);
   display: flex;
@@ -441,6 +461,18 @@ export const Remember = styled.div`
   cursor: pointer;
   box-shadow: rgba(0,0,0,0.1) 0px 3px 6px, rgba(0,0,0,0.2) 0px 3px 6px;
   position: relative;
+  transition: all 0.2s ease-in-out;
+
+  &.editing{
+    grid-column: span 3;
+    grid-row: 1;
+    height: 300px;
+    @media screen and (max-width:768px) {
+      grid-column: span 2;
+    }
+
+  }
+
   textarea{
     width: 100%;
     height: 100%;
@@ -449,6 +481,10 @@ export const Remember = styled.div`
     font-size: 17px;
     font-family: var(--main-font);
     resize: none;
+
+    &.toDelete{
+      opacity: 0.5;
+    }
   }
   textarea:disabled{
     background: none;
@@ -458,16 +494,26 @@ export const Remember = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media screen and (max-width:768px) {
+      padding: .2rem 0;
+    }
   }
   .Date{
     color: #ccc;
     padding: .5rem;
+    @media screen and (max-width:768px) {
+      font-size: 14px;
+      padding: 0;
+    }
   }
   .delete_edit_container{
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: .3rem;
+    @media screen and (max-width:768px) {
+      font-size: 14px;
+    }
   }
   .material-icons-outlined.trash{
     color: #ffb3b3;
@@ -480,5 +526,28 @@ export const Remember = styled.div`
   }
   .material-icons.edit{
     color: #0000ff;
+  }
+  .delete-confirm{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    background: rgba(255,0,0,0.2);
+    color: rgba(255,0,0,0.6);;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    transition: all 0.1s ease-in-out;
+    &:hover{
+      color: rgba(255,0,0,1);
+      font-size: 20px;
+    }
+    &.appear{
+      display: flex;
+      animation: NiceAppear 0.2s ease-in-out;
+    }
   }
 `;

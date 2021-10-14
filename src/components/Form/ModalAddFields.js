@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   HeaderSpan,
   InputField,
@@ -10,6 +10,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from './styled';
+import { GlobalContext } from '../../contexts/App/index';
 
 const backDrop = {
   hidden: { opacity: 0 },
@@ -57,17 +58,24 @@ export default function ModalAddFields({ showModal, setShowModal, setAddFields }
   const [fields, setFields] = useState([]);
   const [inputAddFields, setInputAddFields] = useState('');
   const [selectedModalHeader, setSelectedModalHeader] = useState([true, false]);
+  const bodyContext = useContext(GlobalContext);
+
+  useEffect(() => {
+    if (showModal) bodyContext.setBodyBlock(true);
+  }, [showModal]);
 
   const handleAddButtonClick = () => {
     setAddFields(fields);
     setShowModal(false);
     setFieldTexts(prevArr => prevArr.filter(item => !fields.includes(item)));
+    bodyContext.setBodyBlock(false);
   };
 
   const handleAddCustomButtonClick = () => {
     setAddFields(prevArr => [...prevArr, inputAddFields]);
     setFields(prevArr => [...prevArr, inputAddFields]);
     setShowModal(false);
+    bodyContext.setBodyBlock(false);
   };
 
   const handleClickHeaderSpan = (e) => {
@@ -78,6 +86,11 @@ export default function ModalAddFields({ showModal, setShowModal, setAddFields }
       setCustomFieldsBody(true);
       setSelectedModalHeader([false, true]);
     }
+  };
+
+  const handleCloseClick = () => {
+    setShowModal(false);
+    bodyContext.setBodyBlock(false);
   };
 
   return (
@@ -122,8 +135,8 @@ export default function ModalAddFields({ showModal, setShowModal, setAddFields }
               <span
                 tabIndex={0}
                 role="button"
-                onKeyUp={() => setShowModal(false)}
-                onClick={() => setShowModal(false)}
+                onKeyUp={handleCloseClick}
+                onClick={handleCloseClick}
                 className="material-icons-outlined"
               >
                 close

@@ -27,7 +27,7 @@ export default function RememberCard({ NotesData }) {
           Meus Lembretes
           <span className="material-icons button">post_add</span>
         </CardContainerHeader>
-        {NotesData.map(NoteData => <Note key={NoteData.criadoEm}>{NoteData.content.length > 19 ? `${NoteData.content.substring(0, 20)}...` : NoteData.content}</Note>)}
+        {NotesData.map(NoteData => <Note key={NoteData.content}>{NoteData.content.length > 19 ? `${NoteData.content.substring(0, 20)}...` : NoteData.content}</Note>)}
       </CardContainer>
     </>
   );

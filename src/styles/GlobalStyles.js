@@ -51,6 +51,7 @@ body {
   -o-user-select: none;
   user-select: none;
   font-size: 62.5%;
+  overflow-y: ${props => props.bodyBlock ? 'hidden' : 'auto'};
 }
 
 

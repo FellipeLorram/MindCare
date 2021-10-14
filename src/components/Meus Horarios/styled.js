@@ -114,3 +114,48 @@ export const BoxGrid = styled.div`
     margin: 0 0 1rem 0
   }
 `;
+
+export const ModalBody = styled(motion.div)`
+  width: 100%;
+  background: var(--white-color);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "horarios infoPacientes"
+    "horarios infoDia"
+    "horarios AddRemember"
+  ;
+  gap: 1.5rem;
+  padding: 1rem;
+  overflow-y: auto;
+  border-radius: 0 0 10px 10px;
+
+`;
+export const ModalBodyHorarios = styled(motion.div)`
+  width: 100%;
+  background: var(--white-color);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-area: horarios;
+  grid-template-rows: repeat(13, 1fr);
+  gap: .5rem;
+  padding: .5rem;
+  border-radius: 10px;
+  box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+  .horarios{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    padding: .5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid #eee;
+    &:hover{
+      box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+    }
+  }
+`;
