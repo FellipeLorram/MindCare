@@ -22,7 +22,7 @@ export const DayContainer = styled(motion.div)`
   }
   @media screen and (max-width:768px) {
     box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
- }
+  }
 `;
 
 export const DayContainerHeader = styled.div`
@@ -111,51 +111,172 @@ export const BoxGrid = styled.div`
   @media screen and (max-width:768px) {
     grid-template-columns:  1fr;
     grid-template-rows: auto;
-    margin: 0 0 1rem 0
+    margin: 0 0 4rem 0
   }
 `;
 
 export const ModalBody = styled(motion.div)`
   width: 100%;
+  height: 100%;
   background: var(--white-color);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-areas:
-    "horarios infoPacientes"
-    "horarios infoDia"
-    "horarios AddRemember"
-  ;
-  gap: 1.5rem;
+  grid-template-rows: repeat(3, auto);
+  gap: 1rem;
   padding: 1rem;
   overflow-y: auto;
   border-radius: 0 0 10px 10px;
+  overflow-y: auto;
+
+
+  @media screen and (max-width:768px) {
+    grid-template-columns:  1fr;
+    grid-template-rows: repeat(6, auto);
+  }
 
 `;
+
 export const ModalBodyHorarios = styled(motion.div)`
   width: 100%;
+  height: 100%;
   background: var(--white-color);
   display: grid;
   grid-template-columns: 1fr;
-  grid-area: horarios;
-  grid-template-rows: repeat(13, 1fr);
-  gap: .5rem;
+  grid-template-rows: auto;
+  grid-row: span 3;
+  gap: .2rem;
   padding: .5rem;
   border-radius: 10px;
   box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
-  .horarios{
+  @media screen and (max-width:768px) {
+    font-size: 17px;
+  }
+`;
+
+export const ModalBodyHorariosContent = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 2rem;
-    padding: .5rem;
+    justify-content: space-between;
+    gap: .2rem;
+    padding: .3rem;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     border: 1px solid #eee;
+
+    .patient{
+      text-align: left;
+      width: 60%;
+      padding-left: 10%;
+    }
+    .hour{
+      text-align: center;
+      width: 10%;
+      font-size: 17px;
+    }
+    .frequency{
+      text-align: center;
+      width: 30%;
+      color: ${props => props.color ? props.color : 'black'};
+      @media screen and (max-width:768px) {
+        width: unset;
+      }
+    }
+    .material-icons-outlined.add{
+      width: 30%;
+      font-size: 14px;
+      text-align: right;
+      color: black;
+    }
     &:hover{
       box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
     }
+
+`;
+
+export const ModalRelatoryBody = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-direction: column;
+  background: var(--white-color);
+  padding: var(--main-padding);
+  border-radius: 10px;
+  transition: all .2s ease-in-out;
+  box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+  grid-row: span 1;
+`;
+
+export const ModalRelatoryBodyContent = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  padding: var(--second-padding);
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--background-color);
+`;
+
+export const ModalRelatoryFinancial = styled.div`
+  background: var(--white-color);
+  padding: 0.5rem;
+  border-radius: 10px;
+  transition: all .2s ease-in-out;
+  box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  grid-row: span 2;
+  flex-direction: row;
+
+  @media screen and (max-width:768px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+`;
+
+export const ModalRelatoryFinancialInfo = styled.div`
+  width: 100%;
+  height: 100%;
+  background: var(--white-color);
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+export const ModalRelatoryFinancialInfoHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 1.2rem;
+  color: ${props => props.color};
+  width: 100%;
+  border-left: ${props => props.bdLft ? '1px solid var(--primary-color-shadow-opacity-L)' : 'none'};
+
+  @media screen and (max-width:768px) {
+    border: none;
+  }
+`;
+
+export const ModalRelatoryFinancialInfoBody = styled.div`
+  width: 100%;
+  height: 100%;
+  background: var(--white-color);
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: .5rem;
+  @media screen and (max-width:768px) {
+    gap: 1rem;
   }
 `;

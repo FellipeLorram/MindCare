@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import {
   NavLinks,
@@ -6,6 +6,7 @@ import {
   LinkText,
   LinkIcon,
 } from './styled';
+import { GlobalContext } from '../../contexts/App/index';
 
 const animateVariant = {
   initial: {
@@ -20,11 +21,15 @@ export default function NavLink({
   toLink,
   topReference,
 }) {
+  const bodyContext = useContext(GlobalContext);
+  const { themeName } = bodyContext.Theme;
   return (
     <NavLinks>
-      <StyledLink IsActiveLink={topReference === linkText} to={toLink}>
-        <LinkText>{linkText}</LinkText>
+      <StyledLink isactivelink={topReference === linkText ? 'true' : 'false'} to={toLink}>
+        <LinkText active={topReference === linkText} darkTheme={themeName === 'Black&White'}>{linkText}</LinkText>
         <LinkIcon
+          active={topReference === linkText}
+          darkTheme={themeName === 'Black&White'}
           className={topReference === linkText ? 'material-icons' : 'material-icons-outlined'}
           variants={topReference === linkText ? animateVariant : ''}
         >

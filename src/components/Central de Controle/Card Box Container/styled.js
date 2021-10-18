@@ -34,7 +34,7 @@ export const WeekBoxContainer = styled(motion.div)`
 export const Week = styled.div`
   background: var(--white-color);
   padding: 1em;
-  border-radius: 20px;
+  border-radius: 15px;
   border: 0.5px solid var(--primary-color);
 `;
 
@@ -65,7 +65,7 @@ export const WeekDayContainer = styled.div`
 export const Day = styled.div`
   background: var(--white-color);
   padding: var(--main-padding);
-  border-radius: 20px;
+  border-radius: 15px;
   border: 1px solid rgba(0, 0, 0, 0.16);
   cursor: pointer;
   transition: all .2s ease-in-out;
@@ -85,7 +85,7 @@ export const DayHeader = styled.div`
   padding-top: 0;
   width: 100%;
   margin-bottom: 10px;
-  color: #5c1e7b;
+  color: var(--font-color);
 `;
 
 export const DayContent = styled.div`
@@ -96,5 +96,5 @@ export const DayContent = styled.div`
   padding: var(--second-padding);
   padding-bottom: 5px;
   margin-bottom: 15px;
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid var(--background-color);
 `;

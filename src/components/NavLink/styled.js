@@ -23,10 +23,10 @@ export const StyledLink = styled(Link)`
   transition: background 0.2s;
   cursor: pointer;
   text-decoration: none;
-  background: ${(props) => props.IsActiveLink ? 'var(--second-color)' : 'none'};
+  background: ${(props) => props.isactivelink === 'true' ? 'var(--second-color)' : 'none'};
 
   &:hover{
-    background: ${(props) => props.IsActiveLink ? 'background: rgba(0, 0, 0, 0.1)' : 'rgba(255, 255, 255, 0.2)'};
+    background: ${(props) => props.isactivelink === 'true' ? 'background: rgba(0, 0, 0, 0.1)' : 'rgba(255, 255, 255, 0.2)'};
   }
 
   @media screen and (max-width:768px) {
@@ -35,14 +35,17 @@ export const StyledLink = styled(Link)`
     height: 100%;
 
     background: none;
-    border-top: ${(props) => props.IsActiveLink ? '2px solid var(--primary-color)' : '1px solid rgba(0, 0, 0, 0.1)'};
+    border-top: ${(props) => props.isactivelink ? '2px solid var(--primary-color)' : '1px solid rgba(0, 0, 0, 0.1)'};
   }
 
 `;
 
 export const LinkText = styled.span`
   font-size: 1.2rem;
-  color: var(--white-color);
+  color: ${props => {
+    if (props.darkTheme && props.active) return '#000';
+    return 'var(--font-white-color)';
+  }};
   font-family: var(--main-font);
 
   @media screen and (max-width:768px) {
@@ -55,8 +58,11 @@ export const LinkText = styled.span`
 
 export const LinkIcon = styled(motion.span)`
   font-size: 1.5rem;
-  color: var(--white-color);
-
+  color: ${props => {
+    if (props.darkTheme && props.active) return '#000';
+    return 'var(--font-white-color)';
+  }};
+  
   @media screen and (max-width:768px) {
     font-size: 1.1rem;
     color: var(--primary-color);

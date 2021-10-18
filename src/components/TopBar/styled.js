@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 export const Header = styled.div`
   width: 100%;
@@ -29,7 +29,7 @@ export const Toggle = styled.div`
   transition: transform 0.2s;
 
   .material-icons:hover {
-    color: var(--second-color);
+    color: var(--font-color);
     transform: scale(1.1);
     cursor: pointer;
   }
@@ -78,7 +78,7 @@ export const TopReference = styled.div`
   padding: 0.5em;
   font-size: 1.5rem;
   font-family: var(--main-font);
-  color: var(--second-color);
+  color: var(--primary-color);
   text-align: center;
   @media screen and (max-width:768px) {
     font-size: 1.6rem;

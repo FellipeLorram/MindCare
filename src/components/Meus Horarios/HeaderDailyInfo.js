@@ -11,7 +11,7 @@ export default function HeaderDailyInfo({ setIndex, day, setCurrentDay }) {
 
   return (
     <ContainerHeader>
-      <Toggle>
+      <Toggle className="small-pd">
         <span
           onKeyUp={handleChevronMinusClick}
           onClick={handleChevronMinusClick}
@@ -22,10 +22,10 @@ export default function HeaderDailyInfo({ setIndex, day, setCurrentDay }) {
           arrow_back_ios_new
         </span>
       </Toggle>
-      <TopReference>
+      <TopReference className="small-pd">
         {day}
       </TopReference>
-      <Toggle>
+      <Toggle className="small-pd">
         <span
           onKeyUp={handleChevronPlusClick}
           onClick={handleChevronPlusClick}

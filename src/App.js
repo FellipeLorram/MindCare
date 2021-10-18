@@ -25,12 +25,12 @@ function AppWrapper({ children }) {
   );
 }
 
-function AppContent({ children }) {
+function AppContent() {
   const bodyContext = useContext(GlobalContext);
 
   return (
     <Router history={history}>
-      <GlobalStyles bodyBlock={bodyContext.bodyBlock} />
+      <GlobalStyles theme={bodyContext.Theme} bodyBlock={bodyContext.bodyBlock} />
       <Routes />
     </Router>
   );

@@ -218,7 +218,7 @@ export const ModalContainer = styled(motion.div)`
   z-index: 7;
   font-family: var(--main-font);
   font-size: 1.2rem;
-  height: 600px;
+  height: 90%;
 
   &.large{
     width: 100%;
@@ -253,6 +253,7 @@ export const ModalHeader = styled(motion.div)`
 
   &.end{
     justify-content: flex-end;
+    padding: .5rem 1rem;
   }
 
   .header--day{

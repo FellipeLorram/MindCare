@@ -58,7 +58,7 @@ export const Logo = styled.div`
   color: var(--white-color);
   font-family: var(--main-font-cursive);
   line-height: 14px;
-  box-shadow: inset 0 -6px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 -6px 10px var(--logo-shadow-color);
 
   @media screen and (max-width:768px) {
     display: none;

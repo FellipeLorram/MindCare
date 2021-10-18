@@ -5,8 +5,18 @@ export const GlobalContext = createContext();
 
 export default function AppContext({ children }) {
   const [bodyBlock, setBodyBlock] = useState(globalState.bodyBlock);
+  const [Theme, setTheme] = useState(globalState.theme);
 
   return (
-    <GlobalContext.Provider value={{ bodyBlock, setBodyBlock }}>{children}</GlobalContext.Provider>
+    <GlobalContext.Provider
+      value={{
+        setTheme,
+        Theme,
+        bodyBlock,
+        setBodyBlock,
+      }}
+    >
+      {children}
+    </GlobalContext.Provider>
   );
 }

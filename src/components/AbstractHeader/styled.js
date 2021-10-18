@@ -16,9 +16,13 @@ export const Toggle = styled.div`
   transition: transform 0.2s;
 
   .material-icons:hover {
-    color: var(--second-color);
+    color: var(--font-color);
     transform: scale(1.1);
     cursor: pointer;
+  }
+
+  &.small-pd{
+    padding: .5rem;
   }
 `;
 
@@ -26,9 +30,13 @@ export const TopReference = styled.div`
   padding: 0.5em;
   font-size: 1.5rem;
   font-family: var(--main-font);
-  color: var(--second-color);
+  color: var(--font-color);
   text-align: center;
   @media screen and (max-width:768px) {
     font-size: 1.2rem;
+  }
+
+  &.small-pd{
+    padding: .5rem;
   }
 `;
