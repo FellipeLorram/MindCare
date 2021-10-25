@@ -7,9 +7,9 @@ export const DayContainer = styled(motion.div)`
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  border: var(--primary-border);
+  border: 1px solid var(--border-color);
   height: 100%;
-  background: white;
+  background: var(--card-background-color);
   padding: var(--main-padding);
   border-radius: 20px;
   font-family: var(--main-font);
@@ -18,10 +18,10 @@ export const DayContainer = styled(motion.div)`
   transition: all 0.2s;
 
   &:hover{
-    box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+    box-shadow: var(--shadow);
   }
   @media screen and (max-width:768px) {
-    box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+    box-shadow: var(--shadow);
   }
 `;
 
@@ -67,7 +67,7 @@ export const DayContainerBodyContent = styled.div`
     width: 100%;
     padding: 0.5em 0 0.2em 0;
     margin-bottom: 0.1em;
-    border-bottom: 1px solid #f5f5f5;
+    border-bottom: 1px solid var(--border-color);
 
     span{
       width: 20%;
@@ -118,7 +118,7 @@ export const BoxGrid = styled.div`
 export const ModalBody = styled(motion.div)`
   width: 100%;
   height: 100%;
-  background: var(--white-color);
+  background: var(--card-background-color);
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(3, auto);
@@ -139,7 +139,7 @@ export const ModalBody = styled(motion.div)`
 export const ModalBodyHorarios = styled(motion.div)`
   width: 100%;
   height: 100%;
-  background: var(--white-color);
+  background: var(--card-background-color);
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
@@ -147,7 +147,7 @@ export const ModalBodyHorarios = styled(motion.div)`
   gap: .2rem;
   padding: .5rem;
   border-radius: 10px;
-  box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+  box-shadow: var(--shadow);
   @media screen and (max-width:768px) {
     font-size: 17px;
   }
@@ -163,7 +163,7 @@ export const ModalBodyHorariosContent = styled.div`
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    border: 1px solid #eee;
+    border: 1px solid var(--border-color);
 
     .patient{
       text-align: left;
@@ -178,7 +178,7 @@ export const ModalBodyHorariosContent = styled.div`
     .frequency{
       text-align: center;
       width: 30%;
-      color: ${props => props.color ? props.color : 'black'};
+      color: ${props => props.color ? props.color : 'var(--font-color)'};
       @media screen and (max-width:768px) {
         width: unset;
       }
@@ -190,7 +190,7 @@ export const ModalBodyHorariosContent = styled.div`
       color: black;
     }
     &:hover{
-      box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+      box-shadow: var(--shadow);
     }
 
 `;
@@ -201,11 +201,11 @@ export const ModalRelatoryBody = styled.div`
   justify-content: space-between;
   gap: 1rem;
   flex-direction: column;
-  background: var(--white-color);
+  background: var(--card-background-color);
   padding: var(--main-padding);
   border-radius: 10px;
   transition: all .2s ease-in-out;
-  box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+  box-shadow: var(--shadow);
   grid-row: span 1;
 `;
 
@@ -217,15 +217,15 @@ export const ModalRelatoryBodyContent = styled.div`
   font-size: 1rem;
   padding: var(--second-padding);
   padding-bottom: 5px;
-  border-bottom: 1px solid var(--background-color);
+  border-bottom: 1px solid var(--border-color);
 `;
 
 export const ModalRelatoryFinancial = styled.div`
-  background: var(--white-color);
+  background: var(--card-background-color);
   padding: 0.5rem;
   border-radius: 10px;
   transition: all .2s ease-in-out;
-  box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+  box-shadow: var(--shadow);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -242,7 +242,7 @@ export const ModalRelatoryFinancial = styled.div`
 export const ModalRelatoryFinancialInfo = styled.div`
   width: 100%;
   height: 100%;
-  background: var(--white-color);
+  background: var(--card-background-color);
   padding: 0.5rem;
   display: flex;
   align-items: center;
@@ -269,7 +269,7 @@ export const ModalRelatoryFinancialInfoHeader = styled.div`
 export const ModalRelatoryFinancialInfoBody = styled.div`
   width: 100%;
   height: 100%;
-  background: var(--white-color);
+  background: var(--card-background-color);
   padding: 0.5rem;
   display: flex;
   align-items: center;

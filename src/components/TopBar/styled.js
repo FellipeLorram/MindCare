@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Header = styled.div`
   width: 100%;
-  background: var(--white-color);
+  background: var(--card-background-color);
   height: 70px;
   display: flex;
   justify-content: space-between;
@@ -26,10 +26,15 @@ export const Header = styled.div`
 export const Toggle = styled.div`
   font-size: 24px;
   padding: .5em;
-  transition: transform 0.2s;
+  transition: all 0.2s ease-in-out;
+  color: var(--header-color);
+  transition: all 0.2s ease-in-out;
 
+  .material-icons {
+    transition: all 0.2s ease-in-out;
+  }
   .material-icons:hover {
-    color: var(--font-color);
+    color: var(--header-color);
     transform: scale(1.1);
     cursor: pointer;
   }
@@ -51,11 +56,12 @@ export const TopIcon = styled(Link)`
   font-family: var(--main-font);
   background: var(--primary-color);
   text-decoration: none;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     transform: scale(1.02);
     cursor: pointer;
-    box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+    box-shadow: var(--shadow);
   }
   .material-icons-outlined {
     font-size: 17px;
@@ -74,11 +80,12 @@ export const TopIcon = styled(Link)`
   }
 
 `;
+
 export const TopReference = styled.div`
   padding: 0.5em;
   font-size: 1.5rem;
   font-family: var(--main-font);
-  color: var(--primary-color);
+  color: var(--header-color);
   text-align: center;
   @media screen and (max-width:768px) {
     font-size: 1.6rem;
@@ -95,7 +102,7 @@ export const TopReference = styled.div`
       bottom: 0;
       width: 50%;
       height: 2px;
-      background: var(--primary-color);
+      background: var(--header-color);
       animation: leftToCenter 0.3s ease-in-out forwards;
     }
   }

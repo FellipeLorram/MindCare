@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { ContainerHeader, Toggle, TopReference } from './styled';
 
-export default function Header() {
+export default function Header({ text }) {
   const history = useHistory();
 
   return (
@@ -19,7 +19,7 @@ export default function Header() {
         </span>
       </Toggle>
       <TopReference>
-        Novo Paciente
+        {text}
       </TopReference>
       <span />
     </ContainerHeader>

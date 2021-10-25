@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Router } from 'react-router-dom';
 import Routes from './routes';
 import history from './services/history';
@@ -27,7 +27,6 @@ function AppWrapper({ children }) {
 
 function AppContent() {
   const bodyContext = useContext(GlobalContext);
-
   return (
     <Router history={history}>
       <GlobalStyles theme={bodyContext.Theme} bodyBlock={bodyContext.bodyBlock} />

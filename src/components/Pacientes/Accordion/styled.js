@@ -4,15 +4,16 @@ import styled from 'styled-components';
 export const AccordionContainer = styled(motion.div)`
   position: relative;
   margin: 30px;
-  background: var(--white-color);
+  background: var(--card-background-color);
   border-radius: 20px;
   cursor: pointer;
-  border: 0.5px solid var(--primary-color);
+  border: 0.5px solid var(--border-color);
   transition: all 0.2s ease-in-out;
+  color: var(--font-color);
 
   &:hover{
     //border: 0;
-    box-shadow: rgba(204, 152, 230, 0.26) 0px 3px 6px, rgba(204, 152, 230, 0.33) 0px 3px 6px;
+    box-shadow: var(--shadow);
   }
   @media screen and (max-width:768px) {
     margin-top: 5px;
@@ -177,12 +178,17 @@ export const ButtonContainerAccordionBody = styled.div`
     &:hover {
       transform: scale(1.02);
       cursor: pointer;
-      box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+      box-shadow: var(--shadow);
     }
 
     @media screen and (max-width:768px) {
-      box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+      box-shadow: var(--shadow);
     }
+  }
+
+  a{
+    text-decoration: none;
+    color: var(--font-color);
   }
 
 `;

@@ -36,7 +36,18 @@ export default createGlobalStyle`
 
   --background-color:${props => props.theme.backgroundColor};
 
-  --logo-shadow-color: ${props => props.theme.logoShadowColor}
+  --logo-shadow-color: ${props => props.theme.logoShadowColor};
+
+  //
+  --shadow:  ${props => props.theme.shadow};
+
+  --card-background-color: ${props => props.theme.cardBackgroundColor};
+  --line-color: ${props => props.theme.lineColor};
+  --header-color: ${props => props.theme.headerColor};
+  --border-color: ${props => props.theme.borderColor};
+  --header-span-color: ${props => props.theme.headerSpanColor};
+  --selected-field-bg: ${props => props.theme.selectedFieldBg};
+  --selected-field-color: ${props => props.theme.selectedFieldColor};
 }
 
 * {
@@ -108,11 +119,11 @@ export const Button = styled.button`
   &:hover {
     transform: scale(1.02);
     cursor: pointer;
-    box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+    box-shadow: var(--shadow);
   }
 
   @media screen and (max-width:768px) {
-    box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+    box-shadow: var(--shadow);
   }
 `;
 
@@ -155,12 +166,24 @@ export const ModalContainer = styled(motion.div)`
     width: 100%;
     max-width: 80%;
     max-height: 500px;
+    &.large--height{
+      max-height: 860px;
+    }
+    &.medium--height{
+      max-height: 540px;
+    }
   }
 
   @media screen and (max-width:768px) {
     width: 100%;
     max-width: 90%;
     max-height: 460px;
+    &.large--height{
+      max-height: 860px;
+    }
+    &.medium--height{
+      max-height: 540px;
+    }
   }
 `;
 
@@ -170,8 +193,9 @@ export const ModalHeader = styled(motion.div)`
   justify-content: space-between;
   padding: 1rem;
   width: 100%;
-  background: var(--white-color);
+  background: var(--card-background-color);
   border-radius: 10px 10px 0 0;
+  color: var(--font-color);
 
   &.end{
     justify-content: flex-end;
@@ -216,7 +240,7 @@ export const ModalHeader = styled(motion.div)`
 
 export const ModalBody = styled(motion.div)`
   width: 100%;
-  background: var(--white-color);
+  background: ${props => props.bgColor ? props.bgColor : 'var(--card-background-color)'};
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
@@ -237,7 +261,7 @@ export const ModalFooter = styled(motion.div)`
   justify-content: flex-end;
   padding: .5rem 1rem;
   width: 100%;
-  background: var(--white-color);
+  background: var(--card-background-color);
   border-radius: 0 0 10px 10px;
   @media screen and (max-width:768px) {
   }

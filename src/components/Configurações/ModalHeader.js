@@ -7,7 +7,7 @@ export default function ModalHeaderAbstract({ SetshowModal, text }) {
   };
   return (
     <ModalHeader>
-      <span className="header--day">{text}</span>
+      <span className="header--configs">{text}</span>
       <span
         tabIndex={0}
         role="button"

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import {
   AccordionBody,
   AccordionBodyContent,
@@ -70,10 +70,10 @@ export default function Accordion({
       <AccordionBody IsAccordionActive={accordionActive}>
         <ButtonContainerAccordionBody>
           <button type="button">Iniciar consulta</button>
-          <button type="button">Ver mais</button>
+          <Link to="pacientes/ver-mais"><button type="button">Ver mais</button></Link>
         </ButtonContainerAccordionBody>
         <AccordionBodyContent>
-          <BoxPersonalInfos backGroundImage="linear-gradient(var(--white-color), var(--palette-color--third))" boxShadow="0 4px 5px var(--palette-color--third)">
+          <BoxPersonalInfos backGroundImage="linear-gradient(var(--card-background-color), var(--card-background-color))" boxShadow="var(--shadow)">
             <InfoHeader color="#7d27a5">
               <span className="material-icons">face</span>
             </InfoHeader>
@@ -90,7 +90,7 @@ export default function Accordion({
               <span>{email}</span>
             </InfoContainer>
           </BoxPersonalInfos>
-          <BoxPersonalInfos backGroundImage="linear-gradient(var(--white-color), var(--palette-color--first))" boxShadow="0 4px 5px var(--palette-color--first)">
+          <BoxPersonalInfos backGroundImage="linear-gradient(var(--card-background-color), var(--card-background-color))" boxShadow="var(--shadow)">
             <InfoHeader color="#a42885">
               <span className="material-icons">article</span>
             </InfoHeader>
@@ -108,7 +108,7 @@ export default function Accordion({
             </InfoContainer>
 
           </BoxPersonalInfos>
-          <BoxPersonalInfos backGroundImage="linear-gradient(var(--white-color),var(--palette-color--second))" boxShadow="0 4px 5px var(--palette-color--second)">
+          <BoxPersonalInfos backGroundImage="linear-gradient(var(--card-background-color),var(--card-background-color))" boxShadow="var(--shadow)">
             <InfoHeader color="#66a527">
               <span className="material-icons">monetization_on</span>
             </InfoHeader>

@@ -29,7 +29,7 @@ export const NavBar = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    background: var(--white-color);
+    background: var(--card-background-color);
     z-index: 2;
     padding: 0 0.2rem;
     max-width: 100vw;

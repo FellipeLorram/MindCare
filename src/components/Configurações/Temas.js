@@ -58,7 +58,7 @@ function Body() {
     <ModalBody>
       <ModalBodyThemes>
         <Theme themeName="Default" themeColors={theme.default} />
-        <Theme themeName="Purple" themeColors={theme.Purple} />
+        <Theme themeName="Summer" themeColors={theme.Summer} />
         <Theme themeName="Black&White" themeColors={theme.BlackWhite} />
       </ModalBodyThemes>
     </ModalBody>

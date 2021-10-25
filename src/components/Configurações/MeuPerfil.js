@@ -102,21 +102,38 @@ function InputEmail({ label, value }) {
         </span>
       </InputContainer>
       {emailConfirm && (
-        <InputContainer
-          initial={{ y: -20 }}
-          animate={{ y: 0 }}
-          exit={{ y: -20 }}
-          transition={{ duration: 0.2 }}
-        >
-          <label>
-            Confirmar E-mail
-          </label>
-          <span className="input">
-            <input
-              type="text"
-            />
-          </span>
-        </InputContainer>
+        <>
+          <InputContainer
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -20 }}
+            transition={{ duration: 0.2 }}
+          >
+            <label>
+              Confirmar E-mail
+            </label>
+            <span className="input">
+              <input
+                type="text"
+              />
+            </span>
+          </InputContainer>
+          <InputContainer
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -20 }}
+            transition={{ delay: 0.2, duration: 0.2 }}
+          >
+            <label>
+              Código de confirmação
+            </label>
+            <span className="input">
+              <input
+                type="text"
+              />
+            </span>
+          </InputContainer>
+        </>
       )}
     </AnimatePresence>
   );

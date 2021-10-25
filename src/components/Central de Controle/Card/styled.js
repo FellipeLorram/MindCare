@@ -3,22 +3,22 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 export const CardBox = styled(motion.div)`
-  background: var(--white-color);
+  background: var(--card-background-color);
   padding: var(--main-padding);
   border-radius: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.16);
+  border: 1px solid var(--border-color);
   cursor: pointer;
   transition: transform 0.2s, border 0.2s, box-shadow 0.2s;
   z-index: 1;
   position: relative;
 
   &:hover{
-    box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+    box-shadow: var(--shadow);
   }
 
   @media screen and (max-width:768px) {
     min-width: 280px;
-    box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+    box-shadow: var(--shadow);
   }
 
 `;
@@ -32,7 +32,7 @@ export const CardHeader = styled.div`
     padding-top: 0;
     width: 100%;
     margin-bottom: 0.8rem;
-    color: var(--font-color);
+    color: var(--header-color);
 `;
 
 export const CardContent = styled.div`
@@ -43,11 +43,12 @@ export const CardContent = styled.div`
   border-radius: 10px;
   padding: 0.5em;
   margin-bottom: 0.5em;
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid var(--border-color);
   transition: all 0.2s ease-in-out;
+  color: var(--font-color);
 
   &:hover{
-    box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+    box-shadow: var(--shadow);
     padding: 0.5em 0.7em;
   }
 
@@ -64,24 +65,24 @@ export const CardContent = styled.div`
 `;
 
 export const CardContainer = styled(motion.div)`
-  background: var(--white-color);
+  background: var(--card-background-color);
   padding: var(--main-padding);
   border-radius: 20px;
   cursor: pointer;
   transition: border 0.2s, box-shadow 0.2s;
-  border: 0.5px solid rgba(0, 0, 0, 0.16);
+  border: 0.5px solid var(--border-color);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   //gap: 5px;
 
   &:hover {
-    box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+    box-shadow: var(--shadow);
 
   }
   @media screen and (max-width:768px) {
     min-width: 280px;
-   box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+   box-shadow: var(--shadow);
   }
 
 `;
@@ -94,6 +95,7 @@ export const CardContainerHeader = styled.div`
   font-size: 1.2rem;
   padding: .5rem ;
   gap: 1rem;
+  color: var(--header-color);
 
   span{
     display: flex;
@@ -104,13 +106,13 @@ export const CardContainerHeader = styled.div`
   }
 
   .button{
-    background: var(--darkerYellow-color);
+    background: var(--header-color);
     padding: .5rem;
     width: 30%;
     border-radius: 10px;
     color: white;
     cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: var(--shadow);
 
     &:hover{
       filter: brightness(110%);
@@ -126,7 +128,7 @@ export const CardContainerHeader = styled.div`
   }
 
   &.bordered{
-    border-bottom: 0.5px solid rgba(0, 0, 0, 0.16);
+    border-bottom: 0.5px solid var(--border-color);
   }
 `;
 
@@ -135,32 +137,36 @@ export const Note = styled.div`
   align-items: center;
   justify-content: space-between;
   font-size: 1rem;
-  border-radius: 10px;
+  border-radius: 0;
   padding: var(--second-padding);
   padding-bottom: 5px;
   margin-bottom: 5px;
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid var(--border-color);
   transition: box-shadow 0.2s;
+  color: var(--font-color);
 `;
 
 export const InfoText = styled.div`
   display: flex;
   align-items: center;
+  color: var(--font-color);
 `;
 
 export const InfoTable = styled.table`
   width: 100%;
   height: 100%;
+  color: var(--font-color);
 
   thead td {
-    border-bottom: 1px solid #f5f5f5;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 0.5em;
     text-align: center;
     font-size: 1rem;
+    color: var(--font-color);
   }
 
   thead td:nth-child(2) {
-    border-right: 1px solid #f5f5f5;
+    border-right: 1px solid var(--border-color);
   }
 
   tbody tr:nth-child(1) td{
@@ -168,19 +174,19 @@ export const InfoTable = styled.table`
   }
 
   tbody td {
-    border-bottom: 1px solid #f5f5f5;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 0;
     text-align: center;
     font-size: 1rem;
   }
 
   tbody tr td:nth-child(1) {
-    border-bottom: 1px solid #f5f5f5;
+    border-bottom: 1px solid var(--border-color);
     text-align: left;
   }
 
   tbody tr td:nth-child(2) {
-    border-right: 1px solid #f5f5f5;
+    border-right: 1px solid var(--border-color);
   }
 
   tbody tr:nth-child(2) td {
@@ -190,7 +196,7 @@ export const InfoTable = styled.table`
 
   tbody tr:nth-child(2) td:nth-child(1) {
     border-bottom: 0;
-    color: #000;
+    color: var(--font-color);
   }
 `;
 
@@ -219,6 +225,7 @@ export const ModalContainer = styled(motion.div)`
   font-family: var(--main-font);
   font-size: 1.2rem;
   height: 90%;
+  color: var(--font-color);
 
   &.large{
     width: 100%;
@@ -248,8 +255,9 @@ export const ModalHeader = styled(motion.div)`
   justify-content: space-between;
   padding: 1rem;
   width: 100%;
-  background: var(--white-color);
+  background: var(--card-background-color);
   border-radius: 10px 10px 0 0;
+  color: var(--header-color);
 
   &.end{
     justify-content: flex-end;
@@ -258,11 +266,11 @@ export const ModalHeader = styled(motion.div)`
 
   .header--day{
     font-size: 2rem;
-    color: var(--primary-color);
+    color: var(--header-color);
   }
   .header--lembretes{
     font-size: 2rem;
-    color: var(--darkerYellow-color);
+    color: var(--header-color);
   }
 
   .material-icons-outlined{
@@ -271,7 +279,7 @@ export const ModalHeader = styled(motion.div)`
     background: var(--primary-color-shadow-opacity-L);
     border-radius: 50%;
     padding: .2em;
-    color:  var(--primary-color);
+    color: var(--font-color);
 
     &:hover{
       transform: scale(1.1);
@@ -290,13 +298,14 @@ export const ModalHeader = styled(motion.div)`
 
 export const ModalBody = styled(motion.div)`
   width: 100%;
-  background: var(--white-color);
+  background: var(--card-background-color);
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   gap: 1.5rem;
   padding: 1rem;
   overflow-y: auto;
+  color: var(--font-color);
 
   @media screen and (max-width:768px) {
     padding: .5rem;
@@ -307,7 +316,7 @@ export const ModalBody = styled(motion.div)`
 
 export const ModalBodyRemembers = styled(motion.div)`
   width: 100%;
-  background: var(--white-color);
+  background: var(--card-background-color);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
@@ -315,6 +324,7 @@ export const ModalBodyRemembers = styled(motion.div)`
   padding: 1rem;
   overflow-y: auto;
   justify-content: center;
+  color: var(--font-color);
 
   @media screen and (max-width:768px) {
     padding: .5rem;
@@ -326,7 +336,7 @@ export const ModalBodyRemembers = styled(motion.div)`
 
 export const ModalBodyContent = styled(motion.div)`
   width: 100%;
-  background: var(--white-color);
+  background: var(--card-background-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -335,9 +345,10 @@ export const ModalBodyContent = styled(motion.div)`
   cursor: pointer;
   gap: .5rem;
   position: relative;
+  color: var(--font-color);
 
   .modalBody--left-side{
-    background: var(--white-color);
+    background: var(--card-background-color);
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -350,6 +361,7 @@ export const ModalBodyContent = styled(motion.div)`
       justify-content: center;
       border-right: 1px solid #eee;
       padding: 0 1em;
+      color: var(--font-color);
     }
 
     @media screen and (max-width:768px) {
@@ -361,11 +373,13 @@ export const ModalBodyContent = styled(motion.div)`
   }
 
   .modalBody--right-side{
-    background: var(--white-color);
+    background: var(--card-background-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    color: var(--font-color);
+
     @media screen and (max-width:768px) {
       justify-content: center;
       width: 30%;
@@ -378,7 +392,7 @@ export const ModalBodyContent = styled(motion.div)`
     }
   }
   &:hover{
-    box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+    box-shadow: var(--shadow);
     padding: .5rem;
     border-radius: 10px;
   }
@@ -401,7 +415,7 @@ export const ModalFooter = styled(motion.div)`
   justify-content: flex-end;
   padding: .5rem 1rem;
   width: 100%;
-  background: var(--white-color);
+  background: var(--card-background-color);
   border-radius: 0 0 10px 10px;
   @media screen and (max-width:768px) {
   }
@@ -416,7 +430,7 @@ export const StyledLink = styled(Link)`
     font-size: 1rem;
 
     &:hover{
-      color: var(--primary-color)
+      color: var(--font-color);
     }
 `;
 
@@ -429,7 +443,7 @@ export const AddRemember = styled.div`
   justify-content: center;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: rgba(0,0,0,0.1) 0px 3px 6px, rgba(0,0,0,0.2) 0px 3px 6px;
+  box-shadow: var(--shadow);
 
   &:hover{
     .material-icons-outlined{
@@ -441,11 +455,7 @@ export const AddRemember = styled.div`
     font-size: 46px;
     color: var(--darkerYellow-color);
     transition: all .2s ease-in-out;
-
   }
-
-
-
 `;
 
 export const Remember = styled.div`
@@ -453,14 +463,14 @@ export const Remember = styled.div`
   height: 150px;
   padding: .5em;
   padding-bottom: 0;
-  background: var(--white-color);
+  background: var(--card-background-color);
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: column;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: rgba(0,0,0,0.1) 0px 3px 6px, rgba(0,0,0,0.2) 0px 3px 6px;
+  box-shadow: var(--shadow);
   position: relative;
   transition: all 0.2s ease-in-out;
 
@@ -482,6 +492,8 @@ export const Remember = styled.div`
     font-size: 17px;
     font-family: var(--main-font);
     resize: none;
+    background: var(--card-background-color);
+    color: var(--font-color);
 
     &.toDelete{
       opacity: 0.5;

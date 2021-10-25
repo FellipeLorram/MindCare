@@ -1,7 +1,8 @@
+import { AnimatePresence } from 'framer-motion';
 import React from 'react';
 import { ContainerHeader, Toggle, TopReference } from '../AbstractHeader/styled';
 
-export default function HeaderDailyInfo({ setIndex, day, setCurrentDay }) {
+export default function HeaderDailyInfo({ setIndex, day, i }) {
   const handleChevronMinusClick = () => {
     setIndex(index => index < 1 ? 5 : index - 1);
   };
@@ -22,7 +23,7 @@ export default function HeaderDailyInfo({ setIndex, day, setCurrentDay }) {
           arrow_back_ios_new
         </span>
       </Toggle>
-      <TopReference className="small-pd">
+      <TopReference>
         {day}
       </TopReference>
       <Toggle className="small-pd">

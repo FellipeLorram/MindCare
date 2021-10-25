@@ -32,10 +32,10 @@ export const WeekBoxContainer = styled(motion.div)`
 `;
 
 export const Week = styled.div`
-  background: var(--white-color);
+  background: var(--card-background-color);
   padding: 1em;
   border-radius: 15px;
-  border: 0.5px solid var(--primary-color);
+  border: 0.5px solid var(--border-color);
 `;
 
 export const WeekHeader = styled.div`
@@ -63,15 +63,15 @@ export const WeekDayContainer = styled.div`
 `;
 
 export const Day = styled.div`
-  background: var(--white-color);
+  background: var(--card-background-color);
   padding: var(--main-padding);
   border-radius: 15px;
-  border: 1px solid rgba(0, 0, 0, 0.16);
+  border: 1px solid var(--border-color);
   cursor: pointer;
   transition: all .2s ease-in-out;
 
   &:hover {
-    box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+    box-shadow: var(--shadow);
     padding: var(--main-padding) 1.2em;
   }
 `;
@@ -85,7 +85,7 @@ export const DayHeader = styled.div`
   padding-top: 0;
   width: 100%;
   margin-bottom: 10px;
-  color: var(--font-color);
+  color: var(--header-color);
 `;
 
 export const DayContent = styled.div`
@@ -94,6 +94,7 @@ export const DayContent = styled.div`
   justify-content: space-between;
   font-size: 1rem;
   padding: var(--second-padding);
+  color: var(--font-color);
   padding-bottom: 5px;
   margin-bottom: 15px;
   border-bottom: 1px solid var(--background-color);

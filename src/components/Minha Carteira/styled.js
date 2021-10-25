@@ -25,11 +25,11 @@ export const Container = styled(motion.div)`
   flex-direction: column;
   gap: 1rem;
   grid-column: span 2;
-  background: var(--white-color);
+  background: var(--card-background-color);
   border-radius: 10px;
   padding: .5rem;
-  border: 1px solid rgba(0,0,0,0.16);
-  box-shadow: var(--primary-color-shadow-opacity-H) 0px 5px 6px, var(--primary-color-shadow-opacity-L)  0px 5px 6px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
   @media screen and (max-width:768px) {
     grid-column: span 1;
   }
@@ -111,7 +111,7 @@ export const Card = styled.div`
   gap: .5rem;
   padding: .5rem;
   color: var(--font-color);
-  border: 1px solid #eee;
+  border: 1px solid var(--border-color);
   border-radius: 10px;
 `;
 
@@ -133,11 +133,11 @@ export const ContainerPayments = styled(motion.div)`
   width: 100%;
   grid-column: span 2;
   gap: 1rem;
-  background: var(--white-color);
+  background: var(--card-background-color);
   border-radius: 10px;
   padding: .5rem;
-  border: 1px solid rgba(0,0,0,0.16);
-  box-shadow: var(--primary-color-shadow-opacity-H) 0px 5px 6px, var(--primary-color-shadow-opacity-L)  0px 5px 6px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
   @media screen and (max-width:768px) {
     overflow-x: auto;
     grid-column: span 1;
@@ -152,20 +152,22 @@ export const ContainerPaymentsContent = styled(motion.div)`
   flex-direction: row;
   width: 100%;
   gap: 1rem;
-  background: var(--white-color);
+  background: var(--card-background-color);
   padding: .5rem;
   font-size: 1rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border-color);
   position: relative;
 
   span{
     width: 20%;
     text-align: center;
-    color: ${props => props.header ? 'var(--font-color)' : ''};
+    color: ${props => props.header ? 'var(--font-color)' : 'var(--font-color)'};
     font-size: ${props => props.header ? '1.2rem' : '1rem'};
   }
   .name{
       text-align: left;
+      color: var(--font-color);
+
     }
   .situation{
     color: ${props => props.late ? 'var(--red-color)' : ''}

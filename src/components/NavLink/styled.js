@@ -20,7 +20,7 @@ export const StyledLink = styled(Link)`
   width: 100%;
   padding: var(--main-padding);
   text-decoration: none;
-  transition: background 0.2s;
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
   text-decoration: none;
   background: ${(props) => props.isactivelink === 'true' ? 'var(--second-color)' : 'none'};
@@ -35,7 +35,7 @@ export const StyledLink = styled(Link)`
     height: 100%;
 
     background: none;
-    border-top: ${(props) => props.isactivelink ? '2px solid var(--primary-color)' : '1px solid rgba(0, 0, 0, 0.1)'};
+    border-top: ${(props) => props.isactivelink === 'true' ? '2px solid var(--selected-field-bg)' : '1px solid var(--border-color)'};
   }
 
 `;
@@ -50,7 +50,7 @@ export const LinkText = styled.span`
 
   @media screen and (max-width:768px) {
     //display: none;
-    color: var(--primary-color);
+    color: var(--selected-field-bg);
     font-size: .9rem;
   }
 
@@ -62,9 +62,9 @@ export const LinkIcon = styled(motion.span)`
     if (props.darkTheme && props.active) return '#000';
     return 'var(--font-white-color)';
   }};
-  
+
   @media screen and (max-width:768px) {
     font-size: 1.1rem;
-    color: var(--primary-color);
+    color: var(--selected-field-bg);
   }
 `;

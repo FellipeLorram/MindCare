@@ -8,7 +8,7 @@ export const ContainerForm = styled(motion.form)`
   flex-direction: column;
   width: 100%;
   font-size: 3rem;
-  background: var(--white-color);
+  background: var(--background-color);
   padding: 1.8rem;
   gap: 1.8rem;
   overflow-x: hidden;
@@ -34,11 +34,11 @@ export const ContainerForm = styled(motion.form)`
       &:hover {
         transform: scale(1.02);
         cursor: pointer;
-        box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+        box-shadow: var(--shadow);
       }
 
       @media screen and (max-width:768px) {
-        box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+        box-shadow: var(--shadow);
       }
     }
 
@@ -56,11 +56,12 @@ export const ContainerInfo = styled(motion.div)`
   position: relative;
   width: 100%;
   background: ${(props) => props.bgColor};
-  color: #000;
+  color: var(--font-color);
   border-radius: 10px;
   padding: 1rem;
   font-size: 1rem;
   font-family: var(--main-font);
+  box-shadow: var(--shadow);
 
   .header{
     display: flex;
@@ -109,11 +110,11 @@ export const ContainerInfo = styled(motion.div)`
       &:hover {
         transform: scale(1.02);
         cursor: pointer;
-        box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+        box-shadow: var(--shadow);
       }
 
       @media screen and (max-width:768px) {
-        box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+        box-shadow: var(--shadow);
       }
     }
 
@@ -132,6 +133,8 @@ export const FormInputContainer = styled(motion.div)`
   margin-bottom: 2rem;
   .input__label{
     width: 100%;
+    color: var(--font-color);
+
   }
   @media screen and (max-width:768px) {
     flex-direction: column;
@@ -148,21 +151,30 @@ export const InputField = styled.input`
   font-size: 17px;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
+  color: var(--font-color);
+  background-color: var(--card-background-color);
   background-clip: padding-box;
-  border: 1px solid var(--main-color);
+  border: 1px solid var(--border-color);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   outline: none;
   border-radius: 5px;
-  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  transition: all .15s ease-in-out;
   margin-top: 5px;
-
 
   &:focus{
     box-shadow: 0px 1px 8px var(--primary-color);
+  }
+
+  &:disabled{
+    background: rgba(0,0,0,0);
+    padding: .105rem 0;
+    font-family: var(--main-font);
+    color: var(--font-color);
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #ccc;
   }
 `;
 
@@ -173,10 +185,10 @@ export const SelectField = styled.select`
   font-size: 17px;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
+  color: var(--font-color);
+  background-color: var(--card-background-color);
   background-clip: padding-box;
-  border: 1px solid var(--main-color);
+  border: 1px solid var(--border-color);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -202,10 +214,10 @@ export const TextAreaField = styled.textarea`
   font-size: 17px;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
+  color: var(--font-color);
+  background-color: var(--card-background-color);
   background-clip: padding-box;
-  border: 1px solid var(--main-color);
+  border: 1px solid var(--border-color);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -221,7 +233,7 @@ export const TextAreaField = styled.textarea`
 
 export const AvailableHoursContainer = styled.div`
   width: 100%;
-  background: var(--white-color);
+  background: ${props => props.bgColor ? props.bgColor : 'var(--card-background-color)'};
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -230,13 +242,12 @@ export const AvailableHoursContainer = styled.div`
   font-family: var(--main-font);
   border-radius: 10px;
   gap: 1rem;
-
   .AvailableHoursContainer--header{
     display: flex;
     justify-content: center;
     align-items: center;
     padding: .5em;
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
     width: 100%;
   }
 
@@ -292,22 +303,22 @@ export const WeekHour = styled(motion.span)`
   align-items: center;
   justify-content: center;
   color: ${props => {
-    if (!props.available) return 'var(--font-color)';
-    if (props.selected) return 'var(--white-color)';
+    if (!props.available) return 'var(--border-color)';
+    if (props.selected) return 'var(--selected-field-color)';
     return 'var(--font-color)';
   }};
   background: ${props => {
     if (!props.available) return 'var(--red-color)';
-    if (props.selected) return 'var(--font-color)';
-    return 'var(--white-color)';
+    if (props.selected) return 'var(--selected-field-bg)';
+    return 'var(--card-background-color)';
   }};
   padding: 1em;
   border-radius: 10px;
-  border: 0.5px solid var(--font-color);
+  border: 0.5px solid var(--border-color);
   transition: all 0.2s ease-in;
 
   &:hover{
-    box-shadow: ${props => props.available ? '0 0 8px var(--font-color)' : ''};
+    box-shadow: ${props => props.available ? '0 0 8px var(--primary-color)' : ''};
     cursor: ${props => props.available ? 'pointer' : 'initial'};
   }
   @media screen and (max-width:768px) {
@@ -364,7 +375,7 @@ export const ModalHeader = styled(motion.div)`
   justify-content: space-between;
   padding: 1rem;
   width: 100%;
-  background: var(--white-color);
+  background: var(--card-background-color);
   border-radius: 10px 10px 0 0;
   .header--left{
     display: flex;
@@ -388,7 +399,7 @@ export const ModalHeader = styled(motion.div)`
 
 export const HeaderSpan = styled.span`
   cursor: pointer;
-  color: ${props => props.selectedHeader ? 'var(--primary-color)' : '#ccc'};
+  color: ${props => props.selectedHeader ? 'var(--primary-color)' : 'var(--header-span-color)'};
   transition: all 0.2s ease;
   &:hover{
     color: var(--primary-color)
@@ -397,7 +408,7 @@ export const HeaderSpan = styled.span`
 
 export const ModalBody = styled(motion.div)`
   width: 100%;
-  background: var(--white-color);
+  background: var(--card-background-color);
   height: 100%;
 
   .field--container{
@@ -407,7 +418,7 @@ export const ModalBody = styled(motion.div)`
     width: 100%;
     height: 100%;
     padding: 1rem;
-    background: var(--white-color);
+    background: var(--card-background-color);
     gap: .5rem;
   }
 
@@ -420,12 +431,13 @@ export const ModalBody = styled(motion.div)`
     width: 100%;
     height: 100%;
     padding: 1rem;
-    background: var(--white-color);
+    background: var(--card-background-color);
 
     label{
       width: 100%;
+      color: var(--font-color);
       input{
-        border: 1px solid var(--font-color);
+        border: 1px solid var(--border-color);
       }
     }
   }
@@ -454,10 +466,10 @@ export const ModalField = styled(motion.div)`
   justify-content: center;
   text-align: center;
   border-radius: 10px;
-  border: 1px solid var(--font-color);
+  border: 1px solid var(--border-color);
   cursor: pointer;
-  background: ${props => !props.selected ? 'var(--white-color)' : 'var(--font-color)'};
-  color: ${props => props.selected ? 'var(--white-color)' : 'var(--font-color)'};
+  background: ${props => !props.selected ? 'var(--card-background-color)' : 'var(--primary-color)'};
+  color: ${props => props.selected ? 'var(--card-background-color)' : 'var(--font-color)'};
   transition: all 0.2s ease-in;
 
   &:hover{
@@ -479,7 +491,7 @@ export const ModalFooter = styled(motion.div)`
   justify-content: flex-start;
   padding: 1rem;
   width: 100%;
-  background: var(--white-color);
+  background: var(--card-background-color);
   border-radius: 0 0 10px 10px;
   gap: 1rem;
 
@@ -501,11 +513,11 @@ export const ModalFooter = styled(motion.div)`
     &:hover {
       transform: scale(1.02);
       cursor: pointer;
-      box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+      box-shadow: var(--shadow);
     }
 
     @media screen and (max-width:768px) {
-      box-shadow: var(--primary-color-shadow-opacity-H) 0px 3px 6px, var(--primary-color-shadow-opacity-L)  0px 3px 6px;
+      box-shadow: var(--shadow);
     }
   }
 
@@ -514,7 +526,7 @@ export const ModalFooter = styled(motion.div)`
 export const AppointmentDurationContainer = styled.div`
   margin-top: 1rem;
   width: 100%;
-  background: var(--white-color);
+  background: var(--card-background-color);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -529,7 +541,7 @@ export const AppointmentDurationContainer = styled.div`
     justify-content: center;
     align-items: center;
     padding: .5em;
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
     width: 100%;
   }
 
@@ -557,10 +569,10 @@ export const DurationField = styled.div`
   width: 100%;
   border-radius: 10px;
   background: var(--white-color);
-  background: ${props => !props.selected ? 'var(--white-color)' : 'var(--font-color)'};
-  color: ${props => props.selected ? 'var(--white-color)' : 'var(--font-color)'};
+  background: ${props => !props.selected ? 'var(--card-background-color)' : 'var(--selected-field-bg)'};
+  color: ${props => props.selected ? 'var(--selected-field-color)' : 'var(--font-color)'};
   transition: all 0.2s ease-in;
-  border: 1px solid var(--font-color);
+  border: 1px solid var(--border-color);
   cursor: pointer;
   &:hover{
     box-shadow: 0 0 8px var(--font-color);
@@ -578,13 +590,14 @@ export const PaymentContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-direction: row;
+  flex-direction: ${props => props.col ? 'column' : 'row'};
   gap: 1rem;
 
   label{
+    color: var(--font-color);
     width: 100%;
     input{
-      border: 1px solid var(--font-color);
+      border: 1px solid var(--border-color);
     }
   }
 
@@ -593,13 +606,13 @@ export const PaymentContainer = styled.div`
   }
 `;
 
-export const PaymentModalityContainer = styled.div`
+export const PaymentModalityContainer = styled(motion.div)`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: var(--white-color);
+  background: var(--card-background-color);
   border-radius: 10px;
 
   .PaymentModalityContainer--header{
@@ -607,7 +620,7 @@ export const PaymentModalityContainer = styled.div`
     justify-content: center;
     align-items: center;
     padding: .5em;
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
     width: 100%;
   }
   .PaymentModalityContainer--body{
@@ -617,6 +630,22 @@ export const PaymentModalityContainer = styled.div`
     padding: .5em;
     width: 100%;
     gap: 1rem;
+  }
+  .PaymentModalityContainer--body--due{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    padding: .5em;
+    width: 100%;
+    label{
+      color: var(--font-color);
+      grid-column: span 6;
+    }
+    @media screen and (max-width:768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 `;
 
@@ -628,14 +657,13 @@ export const ModalityField = styled.div`
   padding: 1em;
   width: 100%;
   border-radius: 10px;
-  background: var(--white-color);
-  background: ${props => !props.selected ? 'var(--white-color)' : 'var(--font-color)'};
-  color: ${props => props.selected ? 'var(--white-color)' : 'var(--font-color)'};
+  background: ${props => !props.selected ? 'var(--card-background-color)' : 'var(--selected-field-bg)'};
+  color: ${props => props.selected ? 'var(--selected-field-color)' : 'var(--font-color)'};
   transition: all 0.2s ease-in;
-  border: 1px solid var(--font-color);
+  border: 1px solid var(--border-color);
   cursor: pointer;
   &:hover{
-    box-shadow: 0 0 8px var(--font-color);
+    box-shadow: 0 0 8px var(--primary-color);
   }
 
   @media screen and (max-width:768px) {

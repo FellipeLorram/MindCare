@@ -19,8 +19,8 @@ export const BoxGrid = styled.div`
 `;
 
 export const Card = styled(motion.div)`
-  background: var(--white-color);
-  color: var(--primary-color);
+  background: var(--card-background-color);
+  color: var(--font-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,7 +37,7 @@ export const Card = styled(motion.div)`
   span{
     font-size: 1.5rem;
   }
-  box-shadow: var(--primary-color-shadow-opacity-H) 0px 5px 6px, var(--primary-color-shadow-opacity-L)  0px 5px 6px;
+  box-shadow: var(--shadow);
   @media screen and (max-width:768px) {
     padding: 1.5rem 1rem;
  }
@@ -50,7 +50,7 @@ export const InputContainer = styled(motion.div)`
   flex-direction: column;
   label{
   width: 100%;
-  color: var(--primary-color);
+  color: var(--font-color);
   }
   input{
     display: block;
@@ -92,7 +92,7 @@ export const InputContainer = styled(motion.div)`
     cursor: pointer;
     transition: all .2s ease-in-out;
     &:hover{
-      box-shadow: var(--primary-color-shadow-opacity-H) 0px 5px 6px, var(--primary-color-shadow-opacity-L)  0px 5px 6px;
+      box-shadow: var(--shadow);
     }
   }
 `;
@@ -102,6 +102,8 @@ export const ModalBodyThemes = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  color: var(--font-color);
+
   @media screen and (max-width:768px) {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -115,10 +117,12 @@ export const Themes = styled(motion.div)`
   flex-direction: column;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.20), 0 3px 8px rgba(0, 0, 0, 0.08);
+  box-shadow:var(--shadow);
+  border: 1px solid var(--border-color);
   padding: 1rem;
   gap: 1rem;
   cursor: pointer;
+  color: var(--font-color);
 
   .colors{
     width: 100%;

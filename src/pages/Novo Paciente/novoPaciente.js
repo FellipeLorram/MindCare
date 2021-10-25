@@ -12,7 +12,7 @@ export default function novoPaciente() {
   }, []);
   return (
     <MainNovoPaciente>
-      <Header />
+      <Header text="Novo Paciente" />
       <FormContainer />
 
     </MainNovoPaciente>
