@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 export const BoxGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   position: relative;
   margin: 1.8rem;
   display: grid;
@@ -27,7 +26,7 @@ export const Card = styled(motion.div)`
   flex-direction: column;
   padding: 2rem 1rem;
   border-radius: 5px;
-  border: 1px solid rgba(0,0,0,0.16);
+  border: 1px solid var(--border-color);
   cursor: pointer;
   transition: all .2s ease-in-out;
   gap: 1.5rem;
@@ -100,12 +99,12 @@ export const InputContainer = styled(motion.div)`
 export const ModalBodyThemes = styled(motion.div)`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   color: var(--font-color);
 
   @media screen and (max-width:768px) {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
@@ -121,12 +120,13 @@ export const Themes = styled(motion.div)`
   border: 1px solid var(--border-color);
   padding: 1rem;
   gap: 1rem;
+  font-size: 1rem;
   cursor: pointer;
   color: var(--font-color);
 
   .colors{
     width: 100%;
-    height: 150px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -147,7 +147,7 @@ export const Indicator = styled.div`
       cursor: pointer;
       padding: .5rem;
       border-radius: 50%;
-      border: 1px solid #ccc;
+      border: 1px solid var(--border-color);
       transition: all .2s ease-in-out;
       background: ${props => props.selected ? 'rgba(0, 255, 0, 0.6)' : 'none'};
 

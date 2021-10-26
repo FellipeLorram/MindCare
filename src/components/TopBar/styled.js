@@ -54,7 +54,7 @@ export const TopIcon = styled(Link)`
   color: var(--white-color);
   transition: transform 0.2s;
   font-family: var(--main-font);
-  background: var(--primary-color);
+  background: var(--btn-color);
   text-decoration: none;
   transition: all 0.2s ease-in-out;
 

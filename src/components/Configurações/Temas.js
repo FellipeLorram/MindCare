@@ -59,7 +59,9 @@ function Body() {
       <ModalBodyThemes>
         <Theme themeName="Default" themeColors={theme.default} />
         <Theme themeName="Summer" themeColors={theme.Summer} />
-        <Theme themeName="Black&White" themeColors={theme.BlackWhite} />
+        <Theme themeName="Gray" themeColors={theme.Gray} />
+        <Theme themeName="Carnaval" themeColors={theme.Carnaval} />
+        <Theme themeName="DarkGreen" themeColors={theme.DarkGreen} />
       </ModalBodyThemes>
     </ModalBody>
   );

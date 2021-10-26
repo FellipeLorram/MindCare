@@ -132,7 +132,7 @@ function NoteContainer({
       layout
       open={open}
     >
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
         {open && (
           <motion.div
             key="header"
@@ -189,64 +189,78 @@ function Edit({ setdDsabled, disabled }) {
   };
 
   return (
-    <AnimatePresence>
-      {disabled && !askDelete && (
-        <motion.div
-          key="editContainer"
-          className="edit--button-container"
-        >
-          <span
-            role="button"
-            tabIndex={0}
-            onKeyUp={handleClickEdit}
-            onClick={handleClickEdit}
-            className="material-icons-outlined edit"
+    <div className="edit--button-container--wrapper">
+      <AnimatePresence exitBeforeEnter>
+        {disabled && !askDelete && (
+          <motion.div
+            key="editContainer"
+            className="edit--button-container"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.1 }}
           >
-            edit
-          </span>
-          <span
-            role="button"
-            tabIndex={0}
-            onKeyUp={handleClickDelete}
-            onClick={handleClickDelete}
-            className="material-icons-outlined edit"
+            <span
+              role="button"
+              tabIndex={0}
+              onKeyUp={handleClickEdit}
+              onClick={handleClickEdit}
+              className="material-icons-outlined edit"
+            >
+              edit
+            </span>
+            <span
+              role="button"
+              tabIndex={0}
+              onKeyUp={handleClickDelete}
+              onClick={handleClickDelete}
+              className="material-icons-outlined edit"
+            >
+              delete
+            </span>
+          </motion.div>
+        )}
+        {!disabled && !askDelete && (
+          <motion.div
+            key="button--container"
+            className="edit--button-container"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.1 }}
           >
-            delete
-          </span>
-        </motion.div>
-      )}
-      {!disabled && !askDelete && (
-        <motion.div
-          key="button--container"
-          className="edit--button-container"
-        >
 
-          <Button
-            onClick={() => setdDsabled(true)}
+            <Button
+              onClick={() => setdDsabled(true)}
+            >
+              Cancelar
+            </Button>
+            <Button>Salvar</Button>
+          </motion.div>
+        )}
+        {askDelete && (
+          <motion.div
+            key="ask--container"
+            className="edit--button-container"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.1 }}
           >
-            Cancelar
-          </Button>
-          <Button>Salvar</Button>
-        </motion.div>
-      )}
-      {askDelete && (
-        <motion.div
-          key="ask--container"
-          className="edit--button-container"
-        >
-          <span>Você realmente deseja deletar essa nota?</span>
-          <span className="delete--btn">Deletar</span>
-          <span
-            role="button"
-            tabIndex={0}
-            onKeyUp={() => setAskDelete(false)}
-            onClick={() => setAskDelete(false)}
-            className="delete--btn"
-          >
-            Cancelar
-          </span>
-        </motion.div>
-      )}
-    </AnimatePresence>
+            <span>Você realmente deseja deletar essa nota?</span>
+            <span className="delete--btn">Deletar</span>
+            <span
+              role="button"
+              tabIndex={0}
+              onKeyUp={() => setAskDelete(false)}
+              onClick={() => setAskDelete(false)}
+              className="delete--btn"
+            >
+              Cancelar
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }

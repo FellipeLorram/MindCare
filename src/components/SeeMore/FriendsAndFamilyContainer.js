@@ -11,7 +11,7 @@ export default function FriendsAndFamily({ family, friends, others }) {
   const [hide, setHide] = useState(true);
   const [disabled, setDisabled] = useState(true);
   return (
-    <ContainerColumn boxShadow hideMaxPrincipal={hide} color="var(--primary-color-shadow-opacity-H)">
+    <ContainerColumn p="0" boxShadow hideMaxPrincipal={hide} color="var(--primary-color-shadow-opacity-H)">
       <ContainerRow hideMaxSecondary={hide}>
         <ContainerHeadedBox disabled={disabled} text="Familiares" data={family} />
         <ContainerHeadedBox disabled={disabled} text="Amigos e conhecidos" data={friends} />

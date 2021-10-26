@@ -96,7 +96,7 @@ export const ContainerColumn = styled(motion.div)`
   flex-direction: column;
   gap: ${props => props.gap ? props.gap : '2rem'};
   width: 100%;
-  background: ${props => props.color ? props.color : ''};
+  background: ${props => props.color ? 'var(--card-background-color)' : ''};
   padding: ${props => props.p ? props.p : '1rem'};;
   position: relative;
   transition: all .2s ease-in-out;

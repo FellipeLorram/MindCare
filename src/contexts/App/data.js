@@ -38,5 +38,7 @@ export const globalState = {
     headerSpanColor: '#ccc',
     selectedFieldColor: '#fff',
     selectedFieldBg: '#5c1e7b',
+    btnColor: '#5c1e7b',
+
   },
 };

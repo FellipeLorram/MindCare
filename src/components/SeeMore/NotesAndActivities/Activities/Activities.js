@@ -1,6 +1,6 @@
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
-import { Button } from '../../../../styles/GlobalStyles';
+import { Button, SmallButton } from '../../../../styles/GlobalStyles';
 import { Container, Note } from '../Notes/styled';
 import { Activitie } from './styled';
 
@@ -183,6 +183,7 @@ function ActivitiesContainer({
         <motion.textarea
           ref={textArea}
           key="areaActivites"
+          variants={noteVariants}
           initial="initial"
           animate="animate"
           disabled={disabled}
@@ -210,65 +211,79 @@ function Edit({ setdDsabled, disabled }) {
   };
 
   return (
-    <AnimatePresence>
-      {disabled && !askDelete && (
-        <motion.div
-          key="editContainerActivites"
-          className="edit--button-container"
-        >
-          <span
-            role="button"
-            tabIndex={0}
-            onKeyUp={handleClickEdit}
-            onClick={handleClickEdit}
-            className="material-icons-outlined edit"
+    <div className="edit--button-container--wrapper">
+      <AnimatePresence exitBeforeEnter>
+        {disabled && !askDelete && (
+          <motion.div
+            key="editContainerActivites"
+            className="edit--button-container"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.1 }}
           >
-            edit
-          </span>
-          <span
-            role="button"
-            tabIndex={0}
-            onKeyUp={handleClickDelete}
-            onClick={handleClickDelete}
-            className="material-icons-outlined edit"
+            <span
+              role="button"
+              tabIndex={0}
+              onKeyUp={handleClickEdit}
+              onClick={handleClickEdit}
+              className="material-icons-outlined edit"
+            >
+              edit
+            </span>
+            <span
+              role="button"
+              tabIndex={0}
+              onKeyUp={handleClickDelete}
+              onClick={handleClickDelete}
+              className="material-icons-outlined edit"
+            >
+              delete
+            </span>
+          </motion.div>
+        )}
+        {!disabled && !askDelete && (
+          <motion.div
+            key="button--containerActivites"
+            className="edit--button-container"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.1 }}
           >
-            delete
-          </span>
-        </motion.div>
-      )}
-      {!disabled && !askDelete && (
-        <motion.div
-          key="button--containerActivites"
-          className="edit--button-container"
-        >
 
-          <Button
-            onClick={() => setdDsabled(true)}
+            <Button
+              onClick={() => setdDsabled(true)}
+            >
+              Cancelar
+            </Button>
+            <Button>Salvar</Button>
+          </motion.div>
+        )}
+        {askDelete && (
+          <motion.div
+            key="ask--containerActivites"
+            className="edit--button-container"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.1 }}
           >
-            Cancelar
-          </Button>
-          <Button>Salvar</Button>
-        </motion.div>
-      )}
-      {askDelete && (
-        <motion.div
-          key="ask--containerActivites"
-          className="edit--button-container"
-        >
-          <span>Você realmente deseja deletar essa Atividade?</span>
-          <span className="delete--btn">Deletar</span>
-          <span
-            role="button"
-            tabIndex={0}
-            onKeyUp={() => setAskDelete(false)}
-            onClick={() => setAskDelete(false)}
-            className="delete--btn"
-          >
-            Cancelar
-          </span>
-        </motion.div>
-      )}
-    </AnimatePresence>
+            <span>Você realmente deseja deletar essa Atividade?</span>
+            <span className="delete--btn">Deletar</span>
+            <span
+              role="button"
+              tabIndex={0}
+              onKeyUp={() => setAskDelete(false)}
+              onClick={() => setAskDelete(false)}
+              className="delete--btn"
+            >
+              Cancelar
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
 
@@ -278,6 +293,10 @@ function Footer({
   participation,
   open,
 }) {
+  const [disabled, setDisable] = useState(true);
+  const handleClickEdit = () => {
+    setDisable(false);
+  };
   return (
     <motion.div
       key="footerActivites"
@@ -296,7 +315,49 @@ function Footer({
           </div>
           <div className="footer-content">
             <span>Participação</span>
-            <span>{participation}</span>
+            <input disabled={disabled} type="text" value={participation} />
+            <AnimatePresence exitBeforeEnter>
+              {disabled ? (
+                <motion.span
+                  key="spanEdit"
+                  role="button"
+                  tabIndex={0}
+                  onKeyUp={handleClickEdit}
+                  onClick={handleClickEdit}
+                  className="material-icons-outlined edit"
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.1 }}
+                >
+                  edit
+                </motion.span>
+              ) : (
+                <motion.div
+                  key="btnContainer"
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.1 }}
+                  className="span--container"
+                >
+                  <span
+                    role="button"
+                    tabIndex={0}
+                    onKeyUp={() => setDisable(true)}
+                    onClick={() => setDisable(true)}
+                    className="cancel--span"
+                  >
+                    Cancelar
+                  </span>
+                  <span
+                    className="edit--span"
+                  >
+                    Salvar
+                  </span>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </>
       )

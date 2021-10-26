@@ -106,17 +106,12 @@ export const CardContainerHeader = styled.div`
   }
 
   .button{
-    background: var(--header-color);
+    background: var(--btn-color);
     padding: .5rem;
     width: 30%;
     border-radius: 10px;
     color: white;
     cursor: pointer;
-    box-shadow: var(--shadow);
-
-    &:hover{
-      filter: brightness(110%);
-    }
   }
 
   .burlywood{

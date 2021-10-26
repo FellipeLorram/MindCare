@@ -173,7 +173,7 @@ export const ButtonContainerAccordionBody = styled.div`
     color: var(--white-color);
     transition: transform 0.2s;
     font-family: var(--main-font);
-    background: var(--primary-color);
+    background: var(--btn-color);
 
     &:hover {
       transform: scale(1.02);
@@ -210,9 +210,7 @@ export const BoxPersonalInfos = styled.div`
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  border-radius: 15px;
-  border-top-right-radius: 0;
-  border-top-left-radius: 0;
+  border-radius: 10px;
   padding: 1em 1.5em;
   background-image: ${props => props.backGroundImage};
   box-shadow: ${props => props.boxShadow};

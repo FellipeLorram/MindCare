@@ -10,7 +10,7 @@ export const Container = styled(motion.div)`
   width: 100%;
   gap: 1rem;
   border-radius: 10px;
-  background: var(--primary-color-shadow-opacity-H);
+  background: var(--card-background-color);
   box-shadow: inset rgba(0,0,0,0.16) 0px 3px 6px, inset rgba(0,0,0,0.23) 0px 3px 6px;
   position: relative;
 
@@ -64,7 +64,7 @@ export const Container = styled(motion.div)`
     position: absolute;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background: rgba(0,0,0,0.1);
     border-radius: 10px;
@@ -89,9 +89,14 @@ export const Note = styled(motion.div)`
       top: 0;
       left: 0;
       width: 100%;
-      height: 300px;
+      height: 80%;
+      min-height: 280px;
       z-index: 5;
       border-radius: 5px;
+      @media screen and (max-width:768px) {
+        min-height: unset;
+        max-height: 50vh;
+      }
     `}
 
     input{
@@ -100,12 +105,14 @@ export const Note = styled(motion.div)`
     font-weight: bold;
     border: none;
     border-bottom: 1px solid var(--border-color);
+    background: var(--card-background-color);
     outline: none;
     font-size:  ${props => props.open ? '27px' : '17px'};
     font-family: var(--main-font);
     resize: none;
     padding: .5rem 1rem;
     cursor: initial;
+    color: var(--font-color);
     border-radius: ${props => props.open ? 0 : '5px 5px 0 0'};
 
     &:disabled{
@@ -117,7 +124,9 @@ export const Note = styled(motion.div)`
     width: 100%;
     height: 100%;
     border: none;
+    background: var(--card-background-color);
     outline: none;
+    color: var(--font-color);
     font-size: 17px;
     font-family: var(--main-font);
     resize: none;
@@ -140,6 +149,19 @@ export const Note = styled(motion.div)`
     padding: .5rem 1rem;
     background:${props => props.open ? '#aaa' : 'var(--card-background-color)'};
     color: var(--font-color);
+
+    @media screen and (max-width:768px) {
+        flex-direction: column;
+        gap: .5rem;
+      }
+  }
+
+  .edit--button-container--wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background: var(--card-background-color);
   }
 
   .edit--button-container{
@@ -149,7 +171,7 @@ export const Note = styled(motion.div)`
     align-items: center;
     justify-content: flex-end;
     padding: 1rem;
-    background: var(--card-background-color);
+    background: none;
     color: var(--font-color);
     gap: .5rem;
     .delete--btn{
