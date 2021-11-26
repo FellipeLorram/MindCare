@@ -128,6 +128,32 @@ export const SmallButton = styled.button`
   }
 `;
 
+export const MeddiumButton = styled.button`
+  outline: none;
+  border: none;
+  font-size: 14px;
+  padding: .3em .7em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  gap: 5px;
+  color: var(--white-color);
+  transition: transform 0.2s;
+  font-family: var(--main-font);
+  background: ${props => props.color ? props.color : 'var(--btn-color)'};
+
+  &:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+    box-shadow: var(--shadow);
+  }
+
+  @media screen and (max-width:768px) {
+    box-shadow: var(--shadow);
+  }
+`;
+
 export const Button = styled.button`
   outline: none;
   border: none;

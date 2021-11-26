@@ -190,6 +190,10 @@ export const ButtonContainerAccordionBody = styled.div`
     text-decoration: none;
     color: var(--font-color);
   }
+  @media screen and (max-width:768px) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
 
 `;
 

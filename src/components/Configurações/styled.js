@@ -132,6 +132,7 @@ export const Themes = styled(motion.div)`
     justify-content: center;
     border-radius: 10px;
     overflow: hidden;
+    border: 2px solid var(--border-color);
   }
 
 `;
@@ -160,7 +161,7 @@ export const Indicator = styled.div`
 
 export const Color = styled(motion.div)`
   width: 100%;
-  height: 100%;
+  height: 110%;
   background: ${props => props.bg};
   cursor: pointer;
 `;

@@ -10,6 +10,7 @@ import novoPaciente from '../pages/Novo Paciente/novoPaciente';
 import page404 from '../pages/Page404/page404';
 import minhaCarteira from '../pages/Minha Carteira/minhaCarteira';
 import SeeMorePatient from '../pages/Pacientes Ver Mais/seeMorePatients';
+import Consulta from '../pages/Consulta/Consulta';
 
 export default function Routes() {
   return (
@@ -22,6 +23,7 @@ export default function Routes() {
       <MyRoute exact path="/novo-paciente" component={novoPaciente} isClosed />
       <MyRoute exact path="/minha-carteira" component={minhaCarteira} isClosed />
       <MyRoute exact path="/pacientes/ver-mais" component={SeeMorePatient} isClosed />
+      <MyRoute exact path="/pacientes/consulta" component={Consulta} isClosed />
     </Switch>
   );
 }

@@ -69,7 +69,8 @@ export default function Accordion({
       </AccordionHeader>
       <AccordionBody IsAccordionActive={accordionActive}>
         <ButtonContainerAccordionBody>
-          <button type="button">Iniciar consulta</button>
+          <button type="button">Adicionar pagamento</button>
+          <Link to="pacientes/consulta"><button type="button">Iniciar consulta</button></Link>
           <Link to="pacientes/ver-mais"><button type="button">Ver mais</button></Link>
         </ButtonContainerAccordionBody>
         <AccordionBodyContent>

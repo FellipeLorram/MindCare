@@ -77,6 +77,7 @@ export const Activitie = styled(motion.div)`
     padding: .5rem 1rem;
     background:${props => props.open ? '#aaa' : 'var(--card-background-color)'};
     color: var(--font-color);
+    gap: 1rem;
     .edit{
       font-size: 17px;
     }
