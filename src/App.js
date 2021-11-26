@@ -5,8 +5,6 @@ import history from './services/history';
 import GlobalStyles from './styles/GlobalStyles';
 import AppContext, { GlobalContext } from './contexts/App';
 
-import './app.css';
-
 export default function App() {
   return (
     <AppContext>
